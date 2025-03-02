@@ -2,6 +2,10 @@ import os
 import base64
 import zlib
 import marshal
+import requests
+
+# Firebase Database URL (replace with your own Firebase URL)
+firebase_url = 'https://githubproject-amitdas4321-default-rtdb.asia-southeast1.firebasedatabase.app/'
 
 # Get the current user's home directory and set the default path to their Desktop
 home_directory = os.path.expanduser("~")
@@ -18,6 +22,25 @@ print("               GitHub   : https://github.com/AmitDas4321")
 print("="*60)
 print("\033[0m")  # Reset to default text color
 
+# Function to fetch SafeCode status from Firebase via REST API
+def get_safe_code_status():
+    try:
+        # Send GET request to Firebase to fetch the 'status' from 'SafeCode'
+        response = requests.get(f'{firebase_url}/SafeCode/status.json')
+        if response.status_code == 200:
+            status = response.json()  # Get the JSON response
+            if status:  # If SafeCode status is True
+                return True
+            else:
+                print("\033[1;31m[ERROR] - Server Error: SafeCode encryption is disabled.\033[0m")
+                return False
+        else:
+            print(f"\033[1;31m[ERROR] - Server Error: Failed to fetch SafeCode status from Firebase. Status Code: {response.status_code}\033[0m")
+            return False
+    except Exception as e:
+        print(f"\033[1;31m[ERROR] - Server Error: {e}\033[0m")
+        return False
+
 # Display instructions for the user with color and styling
 print("\033[1;36m" + "="*60)
 print("[INFO] - How to Use:")
@@ -27,6 +50,10 @@ print("3. Enter the name of the Python script (e.g., script.py) that you want to
 print("4. The encrypted script will be saved with a new name in the format 'encrypted_<script_name>.py'.")
 print("\033[1;36m" + "="*60)
 print("\033[0m")  # Reset to default text color
+
+# Check if SafeCode status is True
+if not get_safe_code_status():
+    exit(1)  # Exit if SafeCode is not enabled
 
 # Set the initial working directory to the Desktop
 current_directory = default_path
@@ -93,7 +120,7 @@ encoded_code = base64.b64encode(compressed_code)
 encrypted_script_name = f"encrypted_{os.path.splitext(os.path.basename(script_path))[0]}.py"
 
 # Define the full path for saving the encrypted script
-encrypted_script_path = os.path.join(current_directory, encrypted_script_name)
+encrypted_script_path = os.path.join(default_path, encrypted_script_name)
 
 # Save the encrypted script with the new name
 with open(encrypted_script_path, "w") as file:
