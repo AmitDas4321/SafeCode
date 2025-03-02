@@ -3,6 +3,10 @@ import base64
 import zlib
 import marshal
 
+# Get the current user's home directory and set the default path to their Desktop
+home_directory = os.path.expanduser("~")
+default_path = os.path.join(home_directory, "Desktop")
+
 # Clear terminal and display message with colors
 os.system("clear")
 os.system("figlet Safe Code")
@@ -31,7 +35,7 @@ def handle_shell():
         
         # If the user enters 'ls', list the files in the current directory
         if command == "ls":
-            os.system("ls")
+            os.system(f"ls {default_path}")  # List files in the default directory
 
         # If the user enters 'cd <directory>', change directory
         elif command.startswith("cd "):
@@ -43,10 +47,13 @@ def handle_shell():
                 print(f"\033[1;31m[ERROR] - '{path}' is not a valid directory.\033[0m")
         
         # If the user enters a script name (e.g., script.py), proceed to encryption
-        elif os.path.exists(command) and command.endswith(".py"):
-            script_path = command
-            print(f"\033[1;34mEncrypting the script: {script_path}\033[0m")
-            return script_path  # Return the selected script for encryption
+        elif command.endswith(".py"):
+            script_path = os.path.join(default_path, command)  # Get full path within default directory
+            if os.path.exists(script_path):  # Check if the script exists
+                print(f"\033[1;34mEncrypting the script: {script_path}\033[0m")
+                return script_path  # Return the selected script for encryption
+            else:
+                print(f"\033[1;31m[ERROR] - '{command}' does not exist on the Desktop.\033[0m")
 
         # If the user enters 'exit', break out of the loop
         elif command == "exit":
@@ -79,14 +86,17 @@ encoded_code = base64.b64encode(compressed_code)
 # It will be in the format 'encrypted_<original_script_name>'
 encrypted_script_name = f"encrypted_{os.path.splitext(os.path.basename(script_path))[0]}.py"
 
+# Define the full path for saving the encrypted script
+encrypted_script_path = os.path.join(default_path, encrypted_script_name)
+
 # Save the encrypted script with the new name
-with open(encrypted_script_name, "w") as file:
+with open(encrypted_script_path, "w") as file:
     file.write(f"import base64, zlib, marshal\n")
     file.write(f"exec(marshal.loads(zlib.decompress(base64.b64decode({repr(encoded_code)}))))\n")
 
 # Final message with more visual appeal
 print("\033[1;32m" + "="*60)
 print(f"[SUCCESS] - Encryption completed successfully!")
-print(f"[INFO] - The script is saved as '{encrypted_script_name}'.")
+print(f"[INFO] - The script is saved as '{encrypted_script_path}'.")
 print("="*60)
 print("\033[0m")  # Reset to default text color
