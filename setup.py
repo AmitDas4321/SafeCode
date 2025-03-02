@@ -35,7 +35,7 @@ current_directory = default_path
 def handle_shell():
     global current_directory
     while True:
-        command = input(f"\033[1;33mEnter the name of the script file you want to encrypt (e.g., script.py) from {current_directory}: \033[0m").strip()  # Direct prompt
+        command = input(f"\033[1;33mEnter the name of the script file you want to encrypt (e.g., script.py): \033[0m").strip()  # Direct prompt
         
         # If the user enters 'ls', list the files in the current directory
         if command == "ls":
