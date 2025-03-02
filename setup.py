@@ -28,32 +28,38 @@ print("4. The encrypted script will be saved with a new name in the format 'encr
 print("\033[1;36m" + "="*60)
 print("\033[0m")  # Reset to default text color
 
+# Set the initial working directory to the Desktop
+current_directory = default_path
+
 # Function to handle restricted shell (allow 'ls', 'cd', or script name)
 def handle_shell():
+    global current_directory
     while True:
-        command = input("\033[1;33mEnter the name of the script file you want to encrypt (e.g., script.py): \033[0m").strip()  # Direct prompt
+        command = input(f"\033[1;33mEnter the name of the script file you want to encrypt (e.g., script.py) from {current_directory}: \033[0m").strip()  # Direct prompt
         
         # If the user enters 'ls', list the files in the current directory
         if command == "ls":
-            os.system(f"ls {default_path}")  # List files in the default directory
+            os.system(f"ls {current_directory}")  # List files in the current directory
 
         # If the user enters 'cd <directory>', change directory
         elif command.startswith("cd "):
             path = command[3:].strip()  # Get the directory path after 'cd '
-            if os.path.isdir(path):
-                os.chdir(path)  # Change the directory
-                print(f"\033[1;32mChanged directory to {path}\033[0m")
+            new_path = os.path.join(current_directory, path)
+            if os.path.isdir(new_path):  # Check if it's a valid directory
+                os.chdir(new_path)  # Change the directory in the current Python process
+                current_directory = new_path  # Update the current directory
+                print(f"\033[1;32mChanged directory to {current_directory}\033[0m")
             else:
                 print(f"\033[1;31m[ERROR] - '{path}' is not a valid directory.\033[0m")
         
         # If the user enters a script name (e.g., script.py), proceed to encryption
         elif command.endswith(".py"):
-            script_path = os.path.join(default_path, command)  # Get full path within default directory
+            script_path = os.path.join(current_directory, command)  # Get full path within the current directory
             if os.path.exists(script_path):  # Check if the script exists
                 print(f"\033[1;34mEncrypting the script: {script_path}\033[0m")
                 return script_path  # Return the selected script for encryption
             else:
-                print(f"\033[1;31m[ERROR] - '{command}' does not exist on the Desktop.\033[0m")
+                print(f"\033[1;31m[ERROR] - '{command}' does not exist in the current directory.\033[0m")
 
         # If the user enters 'exit', break out of the loop
         elif command == "exit":
@@ -87,7 +93,7 @@ encoded_code = base64.b64encode(compressed_code)
 encrypted_script_name = f"encrypted_{os.path.splitext(os.path.basename(script_path))[0]}.py"
 
 # Define the full path for saving the encrypted script
-encrypted_script_path = os.path.join(default_path, encrypted_script_name)
+encrypted_script_path = os.path.join(current_directory, encrypted_script_name)
 
 # Save the encrypted script with the new name
 with open(encrypted_script_path, "w") as file:
