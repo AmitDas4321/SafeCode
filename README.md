@@ -53,8 +53,3 @@ Replace `<path_to_encrypted_script>` with the path of the encrypted Python scrip
 ## Contributing
 
 Contributions are welcome! If you would like to contribute to the SafeCode project, feel free to fork the repository, make your changes, and submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
