@@ -39,7 +39,7 @@ Here are some screenshots of the script in action:
 
 **2️⃣ Signup logs showing successful registrations**
 
-![Signup logs](https://i.ibb.co/wh5JGzsK/Signup-logs.png)
+![Signup logs](https://i.ibb.co/ccmkTtNy/Encrypted-Script.png)
 
 
 ## Usage 🔧
