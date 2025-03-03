@@ -60,10 +60,6 @@ For example, if you want to encrypt a Python script called `example.py`, you wil
 - Select `example.py` when prompted.
 - The encrypted script will be saved as `encrypted_example.py` on your Desktop.
 
-## Firebase Integration
-
-The script fetches a status from a Firebase Realtime Database to determine whether encryption can proceed. You can configure your Firebase URL in the script (`firebase_url = 'your_firebase_url'`).
-
 ## Features
 
 - **Secure Encryption:** Ensures that only valid requests will trigger encryption.
@@ -83,7 +79,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Prerequisites**: Includes installation instructions for Python 3 and the `requests` library.
 - **Installation**: Steps to clone the repository and install dependencies.
 - **Usage**: Instructions on how to run the script and how the encryption process works.
-- **Firebase Integration**: Mentions the connection to Firebase for determining whether encryption can proceed.
 - **Contributing**: An invitation for others to contribute.
 - **License**: A mention of the MIT license for open-source use.
 
