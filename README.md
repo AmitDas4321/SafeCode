@@ -1,22 +1,4 @@
-Here’s a complete `README.md` for the SafeCode Encryption Script, based on the code you provided:
 
-```markdown
-# SafeCode Encryption Script
-
-SafeCode is a Python-based encryption tool that helps protect your Python scripts by encrypting them. It ensures that the script is only encrypted under certain conditions verified via Firebase, adding an extra layer of security.
-
-## Prerequisites
-
-Before running the script, ensure you have the following installed:
-
-- Python 3.x
-- `requests` library (for making HTTP requests)
-
-You can install the `requests` library using the following command:
-
-```bash
-pip install requests
-```
 
 ## Installation
 
