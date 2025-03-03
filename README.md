@@ -30,6 +30,18 @@ cd SafeCode && python3 setup.py install
 
 This will install all the necessary dependencies.
 
+## 📷 Screenshots
+Here are some screenshots of the script in action:
+
+**1️⃣ Running the script and generating users**
+
+![Running the script](https://i.ibb.co/8nXSZRY0/Running-the-script.png)
+
+**2️⃣ Signup logs showing successful registrations**
+
+![Signup logs](https://i.ibb.co/wh5JGzsK/Signup-logs.png)
+
+
 ## Usage 🔧
 
 Once the installation is complete, you can use the `safeCode.py` script to encrypt your Python files.
