@@ -1,5 +1,7 @@
 # SafeCode Encryption Script 🔐
 
+![Running the script](https://i.ibb.co/M5yLV1yC/Running-the-script-and-Encrypt-code.png)
+
 ## Overview
 SafeCode is a Python-based encryption tool designed to securely encrypt your Python scripts. It ensures that your code remains safe from unauthorized access and protects intellectual property by converting scripts into an unreadable format. The encryption process involves compiling the script to bytecode, serializing it, and then compressing and encoding the bytecode, making it challenging for anyone to reverse-engineer your code.
 
