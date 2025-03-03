@@ -1,23 +1,3 @@
-Here's a complete `README.md` for your **SafeCode Encryption Script**:
-
-```markdown
-# SafeCode Encryption Script
-
-SafeCode is a Python-based encryption tool that allows you to securely encrypt Python scripts. The encryption process is only allowed under certain conditions, which are checked before proceeding.
-
-## Prerequisites
-
-Before you run the script, make sure you have the following:
-
-- Python 3.x installed
-- `requests` library for making HTTP requests
-
-You can install the `requests` library using the following command:
-
-```bash
-pip install requests
-```
-
 ## Installation
 
 Follow these steps to clone the repository and set up the environment:
@@ -78,5 +58,3 @@ Contributions are welcome! If you would like to contribute to the SafeCode proje
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
-
-This provides detailed installation steps, usage instructions, and an overview of the features. Let me know if you want to add anything else!
