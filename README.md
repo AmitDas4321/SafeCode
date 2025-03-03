@@ -53,7 +53,7 @@ Once the installation is complete, you can use the `safeCode.py` script to encry
 To start the script, simply run:
 
 ```bash
-python3 safeCode.py
+python3 setup.py
 ```
 
 ### 2. How to Use the Script 📝
