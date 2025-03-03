@@ -76,15 +76,3 @@ For example, if you want to encrypt a Python script called `example.py`, you wil
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to the project, please fork the repository, make changes, and submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-### Explanation:
-- **Prerequisites**: Includes installation instructions for Python 3 and the `requests` library.
-- **Installation**: Steps to clone the repository and install dependencies.
-- **Usage**: Instructions on how to run the script and how the encryption process works.
-- **Contributing**: An invitation for others to contribute.
-- **License**: A mention of the MIT license for open-source use.
