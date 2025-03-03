@@ -33,7 +33,7 @@ This will install all the necessary dependencies.
 ## 📷 Screenshots
 Here are some screenshots of the script in action:
 
-**1️⃣ Running the script and generating users**
+**1️⃣ Running the script and Encrypt code**
 
 ![Running the script](https://i.ibb.co/8nXSZRY0/Running-the-script.png)
 
