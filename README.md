@@ -78,7 +78,7 @@ The encrypted script is saved in the format `encrypted_<script_name>.py`.
 ### 4. Example 💡
 
 For example, if you want to encrypt a Python script called `example.py`, you will:
-- Run the script with `python3 safeCode.py`
+- Run the script with `python3 setup.py`
 - Select `example.py` when prompted.
 - The encrypted script will be saved as `encrypted_example.py` on your Desktop.
 
