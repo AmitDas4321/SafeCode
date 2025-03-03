@@ -35,7 +35,7 @@ Here are some screenshots of the script in action:
 
 **1️⃣ Running the script and Encrypt code**
 
-![Running the script](https://i.ibb.co/8nXSZRY0/Running-the-script.png)
+![Running the script](https://i.ibb.co/M5yLV1yC/Running-the-script-and-Encrypt-code.png)
 
 **2️⃣ Signup logs showing successful registrations**
 
