@@ -37,9 +37,9 @@ Here are some screenshots of the script in action:
 
 ![Running the script](https://i.ibb.co/M5yLV1yC/Running-the-script-and-Encrypt-code.png)
 
-**2️⃣ Signup logs showing successful registrations**
+**2️⃣ Encrypted script is saved**
 
-![Signup logs](https://i.ibb.co/ccmkTtNy/Encrypted-Script.png)
+![Encrypyed Script](https://i.ibb.co/ccmkTtNy/Encrypted-Script.png)
 
 
 ## Usage 🔧
